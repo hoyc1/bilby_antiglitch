@@ -3,7 +3,19 @@ name = "bilby_glitch"
 version = "0.1.0"
 dependencies = [
     "bilby",
-    "bilby_pipe"
+    "bilby_pipe @ git+https://git.ligo.org/charlie.hoy/bilby_pipe.git@input_class"
+]
+
+[project.optional-dependencies]
+test = [
+        "pytest",
+        "pytest-cov"
+]
+docs = [
+        "genbadge[coverage]",
+        "sphinx<9.0.0", # due to incompatibility with sphinx-tabs
+        "sphinx-immaterial",
+        "sphinx-tabs"
 ]
 
 [build-system]
