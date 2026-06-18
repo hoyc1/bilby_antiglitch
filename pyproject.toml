@@ -1,5 +1,5 @@
 [project]
-name = "bilby_glitch"
+name = "bilby_antiglitch"
 version = "0.1.0"
 dependencies = [
     "bilby",
@@ -22,8 +22,5 @@ docs = [
 requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
-[project.scripts]
-bilby_glitch_pipe = "bilby_pipe.main:main"
-
 [tool.setuptools.packages.find]
-include = ["bilby_glitch*"]
+include = ["bilby_antiglitch*"]

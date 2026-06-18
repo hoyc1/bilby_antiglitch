@@ -1,6 +1,6 @@
 import numpy as np
 import pytest
-from bilby_glitch.source import antiglitch
+from bilby_antiglitch.source import antiglitch
 
 
 @pytest.fixture

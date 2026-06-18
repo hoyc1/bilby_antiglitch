@@ -231,10 +231,10 @@ def create_parser(top_level=False):
     from bilby_pipe.parser import create_parser
     parser = create_parser(top_level=top_level)
     parser.set_defaults(
-        main_input_class="bilby_glitch.bilby_pipe.MainInput",
-        analysis_input_class="bilby_glitch.bilby_pipe.DataAnalysisInput",
-        generation_executable_parser="bilby_glitch.bilby_pipe.create_parser",
-        generation_input_class="bilby_glitch.bilby_pipe.DataGenerationInput"
+        main_input_class="bilby_antiglitch.bilby_pipe.MainInput",
+        analysis_input_class="bilby_antiglitch.bilby_pipe.DataAnalysisInput",
+        generation_executable_parser="bilby_antiglitch.bilby_pipe.create_parser",
+        generation_input_class="bilby_antiglitch.bilby_pipe.DataGenerationInput"
     )
     glitch_group = parser.add_argument_group("Glitch models")
     glitch_group.add_argument(
@@ -243,7 +243,7 @@ def create_parser(top_level=False):
         default=None,
         help="Name of the frequency domain source model. Can be one of"
         " [antiglitch] or the python path to a source equation e.g."
-        " bilby_glitch.source.antiglitch",
+        " bilby_antiglitch.source.antiglitch",
     )
     glitch_group.add_argument(
         "--injection-glitch-frequency-domain-source-model",
@@ -251,7 +251,7 @@ def create_parser(top_level=False):
         default=None,
         help="Name of the frequency domain source model. Can be one of"
         " [antiglitch] or the python path to a source equation e.g."
-        " bilby_glitch.source.antiglitch",
+        " bilby_antiglitch.source.antiglitch",
     )
     glitch_group.add_argument(
         "--detectors-glitch",
