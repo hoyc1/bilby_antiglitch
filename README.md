@@ -4,7 +4,7 @@
 
 [![Coverage report](https://hoyc1.github.io/bilby_glitch/coverage-badge.svg)](https://hoyc1.github.io/bilby_glitch/coverage.xml) [![Pipeline Status](https://github.com/hoyc1/bilby_glitch/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/hoyc1/bilby_glitch/actions/workflows/test.yml)
 
-This Python package extends the functionality in the bilby to additional sample over glitch realisations
+This Python package extends the functionality in the bilby to additionally sample over glitch realisations
 
 ## Installation
 
