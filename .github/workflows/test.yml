@@ -33,7 +33,7 @@ jobs:
         python -m pip install .[test]
 
     - name: Run tests
-      run: python -m pytest --pyargs bilby_glitch.tests --cov=bilby_glitch --cov-report xml --cov-report term:skip-covered --junitxml=pytest.xml
+      run: python -m pytest --pyargs bilby_antiglitch.tests --cov=bilby_antiglitch --cov-report xml --cov-report term:skip-covered --junitxml=pytest.xml
 
     - name: Coverage report
       run: |
