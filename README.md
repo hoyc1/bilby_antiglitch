@@ -40,6 +40,13 @@ glitch-frequency-domain-source-model = bilby_glitch.source.antiglitch
 detectors-glitch = ['L1']
 ```
 
+If you wish to perform an injection with a specific glitch model, this can be
+done with the following option in your configuration file:
+
+```ini
+injection-glitch-frequency-domain-source-model = bilby_glitch.source.antiglitch
+```
+
 ## Citing
 
 If you find `bilby_glitch` useful in your work please cite the following papers:
