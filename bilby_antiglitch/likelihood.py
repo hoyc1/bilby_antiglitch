@@ -181,8 +181,8 @@ class GravitationalWaveTransientPlusGlitch(Glitch, GravitationalWaveTransient):
 
             per_detector_snr = self.calculate_snrs(
                 waveform_polarizations=waveform_polarizations,
-                glitch_strain=h,
                 interferometer=interferometer,
+                glitch_strain=h,
                 parameters=parameters,
             )
 
@@ -195,8 +195,8 @@ class GravitationalWaveTransientPlusGlitch(Glitch, GravitationalWaveTransient):
         return float(log_l.real)
 
     def calculate_snrs(
-        self, waveform_polarizations, glitch_strain, interferometer,
-        return_array=True, parameters=None
+        self, waveform_polarizations, interferometer,
+        glitch_strain=None, return_array=True, parameters=None
     ):
         parameters = _fallback_to_parameters(self, parameters)
         signal = self._compute_full_waveform(
@@ -204,7 +204,8 @@ class GravitationalWaveTransientPlusGlitch(Glitch, GravitationalWaveTransient):
             interferometer=interferometer,
             parameters=parameters,
         )
-        signal += glitch_strain
+        if glitch_strain is not None:
+            signal += glitch_strain
         _mask = interferometer.frequency_mask
 
         if 'recalib_index' in parameters:
