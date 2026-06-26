@@ -1,4 +1,4 @@
-# bilby glitch
+# bilby antiglitch
 
 [![PyPI version](https://img.shields.io/pypi/v/bilby_antiglitch)](https://img.shields.io/pypi/v/bilby_antiglitch)
 
