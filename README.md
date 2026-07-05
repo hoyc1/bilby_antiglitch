@@ -52,5 +52,14 @@ injection-glitch-frequency-domain-source-model = bilby_antiglitch.source.antigli
 If you find `bilby_antiglitch` useful in your work please cite the following papers:
 
 ```bibtex
-
+@article{Hoy:2026dkr,
+    author = "Hoy, Charlie and Bondarescu, Ruxandra and Lundgren, Andrew and Nuttall, Laura K.",
+    title = "{A parametric signal plus noise inference framework for short duration non-Gaussian noise transients}",
+    eprint = "2606.31304",
+    archivePrefix = "arXiv",
+    primaryClass = "gr-qc",
+    reportNumber = "LIGO-P2600325",
+    month = "6",
+    year = "2026"
+}
 ```
