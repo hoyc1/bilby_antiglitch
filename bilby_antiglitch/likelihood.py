@@ -167,7 +167,7 @@ class GravitationalWaveTransientPlusGlitch(Glitch, GravitationalWaveTransient):
         if waveform_polarizations is None:
             return np.nan_to_num(-np.inf)
 
-        cbc_parameters.update(self.get_sky_frame_parameters(cbc_parameters))
+        parameters.update(self.get_sky_frame_parameters(cbc_parameters))
         total_snrs = self._CalculatedSNRs()
         for interferometer in self.interferometers:
             glitch_params = self._get_ifo_glitch_params(interferometer, parameters)
