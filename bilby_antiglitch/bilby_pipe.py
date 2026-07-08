@@ -135,6 +135,8 @@ class Input(_Input):
                 phase_marginalization=self.phase_marginalization,
                 distance_marginalization=self.distance_marginalization,
                 time_marginalization=self.time_marginalization,
+                reference_frame=self.reference_frame,
+                time_reference=self.time_reference,
                 glitch_model=self.glitch_frequency_domain_source_model,
                 detectors_glitch=self.detectors_glitch
             )

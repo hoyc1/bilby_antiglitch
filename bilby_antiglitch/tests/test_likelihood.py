@@ -634,6 +634,50 @@ class TestGravitationalWaveTransientPlusGlitch(BaseTest):
         }
         assert log_l == 4.
 
+    def test_log_likelihood_ratio_forwards_sky_frame_to_calculate_snrs(
+        self, monkeypatch
+    ):
+        likelihood = self._base_plus_glitch_likelihood()
+        likelihood.get_sky_frame_parameters = lambda params: {
+            "ra": 1.1,
+            "dec": 2.2,
+            "geocent_time": 3.3,
+        }
+        capture = {}
+
+        def _calculate_snrs(
+            self, waveform_polarizations, interferometer, glitch_strain,
+            return_array=True, parameters=None
+        ):
+            capture["parameters"] = dict(parameters)
+            return DummyCalculatedSNRs(d_inner_h=1.0, optimal_snr_squared=2.0)
+
+        monkeypatch.setattr(
+            GravitationalWaveTransientPlusGlitch, "calculate_snrs", _calculate_snrs
+        )
+
+        # Sampled parameters carry zenith/azimuth/L1_time (no ra/dec/geocent_time)
+        likelihood.parameters = {
+            "mass_1": 30.0,
+            "mass_2": 20.0,
+            "luminosity_distance": 100.0,
+            "zenith": 0.1,
+            "azimuth": 0.2,
+            "L1_time": 1234.5,
+            "A": 1.0,
+            "f": 40.0,
+            "phi": 0.1,
+            "tc": 0.2,
+            "gamma": 0.3,
+        }
+
+        # Default-args call (parameters=None) -> uses self.parameters.
+        likelihood.log_likelihood_ratio()
+
+        for key in ("ra", "dec", "geocent_time"):
+            assert key in capture["parameters"]
+            assert key not in likelihood.parameters
+
     def test_log_likelihood_ratio_returns_negative_infinity_when_waveform_is_none(
         self
     ):
